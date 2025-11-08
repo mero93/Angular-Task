@@ -7,6 +7,6 @@ export const routes: Routes = [
   { path: 'users', component: UsersTableComponent, title: 'მომხმარებლები' },
   { path: 'posts', component: PostsTableComponent, title: 'პოსტები' },
   { path: 'promotions', component: PromotionsComponent, title: 'აქციები' },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', redirectTo: '/home' },
+  { path: '', redirectTo: '/users', pathMatch: 'full' },
+  { path: '**', redirectTo: '/users' },
 ];
