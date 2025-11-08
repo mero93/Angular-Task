@@ -5,6 +5,7 @@ import { User, UserFull } from '../interfaces/user';
 import { Post } from '../interfaces/post';
 import { Player } from '../interfaces/player';
 import { faker } from '@faker-js/faker';
+import { Todo } from '../interfaces/todo';
 
 const API_URL = 'https://jsonplaceholder.typicode.com';
 
@@ -16,6 +17,7 @@ export class HttpService {
   private users: User[] = [];
   private posts: Post[] = [];
   private leaderBoard: Player[] = [];
+  private todos: Todo[] = [];
 
   getUsers() {
     if (this.users.length > 0) {
@@ -34,6 +36,19 @@ export class HttpService {
           };
         });
         return this.users;
+      })
+    );
+  }
+
+  getUserTodos(userId: number) {
+    if (this.todos.length > 0) {
+      return of(this.todos.filter((todo) => todo.userId === userId));
+    }
+
+    return this.http.get<Todo[]>(`${API_URL}/todos`).pipe(
+      map((res) => {
+        this.todos = res;
+        return this.todos.filter((todo) => todo.userId === userId);
       })
     );
   }
