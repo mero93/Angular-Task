@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
-import { User } from '../../interfaces/user';
+import { User } from '../interfaces/user';
 
 @Component({
   selector: 'app-users-table',

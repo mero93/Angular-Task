@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
-import { Post } from '../../interfaces/post';
+import { Post } from '../interfaces/post';
 
 @Component({
   selector: 'app-posts-table',

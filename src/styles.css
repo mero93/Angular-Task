@@ -3,11 +3,12 @@
   padding: 0;
   text-indent: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 :root {
   --sidebar-width: 100px;
-  --header-height: 60px;
+  --header-height: 80px;
   --footer-height: 30px;
   --background-body: rgb(223, 229, 231);
   --background-component: rgb(12, 85, 114);
@@ -83,6 +84,26 @@ nav {
   min-width: 800px;
   width: 50%;
   align-items: center;
+}
+
+.title {
+  padding: 10px;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clicked {
+  animation: click-feedback ease-in-out;
+}
+
+@keyframes click-feedback {
+  50% {
+    background-color: var(--color-general);
+    color: var(--color-contrast);
+  }
 }
 
 @media (max-width: 1024px) {

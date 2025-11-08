@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { forkJoin, map, of } from 'rxjs';
-import { User, UserFull } from '../interfaces/user';
-import { Post } from '../interfaces/post';
-import { Player } from '../interfaces/player';
+import { User, UserFull } from './interfaces/user';
+import { Post } from './interfaces/post';
+import { Player } from './interfaces/player';
 import { faker } from '@faker-js/faker';
-import { Todo } from '../interfaces/todo';
+import { Todo } from './interfaces/todo';
 
 const API_URL = 'https://jsonplaceholder.typicode.com';
 
