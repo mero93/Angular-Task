@@ -1,6 +1,10 @@
 <app-header></app-header>
 <main>
-  <aside><app-navigation></app-navigation></aside>
-  <section><router-outlet></router-outlet></section>
+  <nav><app-navigation></app-navigation></nav>
+  <div class="page-content-wrapper">
+    <div class="page-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </main>
 <app-footer></app-footer>
