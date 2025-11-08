@@ -1,1 +1,98 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  text-indent: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --sidebar-width: 100px;
+  --header-height: 60px;
+  --footer-height: 30px;
+  --background-body: rgb(223, 229, 231);
+  --background-component: rgb(12, 85, 114);
+  --color-general: rgb(1, 16, 22);
+  --color-contrast: rgb(226, 246, 246);
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  background-color: var(--background-body);
+}
+
+footer,
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: var(--background-component);
+  padding: 0 20px;
+  color: var(--color-contrast);
+}
+
+header {
+  height: var(--header-height);
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  height: var(--footer-height);
+}
+
+nav {
+  max-width: var(--sidebar-width);
+  width: var(--sidebar-width);
+  top: var(--header-height);
+  bottom: var(--footer-height);
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  position: fixed;
+  padding: 20px 0;
+  gap: 20px;
+  background-color: var(--background-component);
+  color: var(--color-contrast);
+}
+
+.nav-item {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 40px 10px 40px calc(var(--sidebar-width) + 10px);
+  gap: 40px;
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 800px;
+  width: 50%;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .page-content {
+    width: 80%;
+    min-width: auto;
+  }
+}
+@media (max-width: 768px) {
+  :root {
+    --sidebar-width: 60px;
+  }
+}
