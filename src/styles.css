@@ -30,12 +30,15 @@ header {
   align-items: center;
   width: 100%;
   background-color: var(--background-component);
-  padding: 0 20px;
   color: var(--color-contrast);
 }
 
 header {
   height: var(--header-height);
+}
+
+.clock {
+  margin-right: 20px;
 }
 
 footer {
@@ -76,7 +79,7 @@ nav {
   cursor: default;
 }
 
-.navigation-list {
+.nav-list {
   gap: 20px;
   display: flex;
   flex-direction: column;
@@ -136,9 +139,18 @@ nav {
 }
 @media (max-width: 768px) {
   :root {
-    --sidebar-width: 60px;
+    --sidebar-width: 50px;
   }
   .nav-item > p {
     display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 0.8rem;
+  }
+  .clock {
+    font-size: 0.8rem;
   }
 }
