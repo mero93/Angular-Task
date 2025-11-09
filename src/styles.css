@@ -13,8 +13,11 @@
   --background-body: rgb(223, 229, 231);
   --background-active: rgb(12, 125, 150);
   --background-component: rgb(12, 85, 114);
+  --background-nth-row: rgb(181, 200, 201);
+  --background-active-row: rgb(130, 177, 182);
   --color-general: rgb(1, 16, 22);
   --color-contrast: rgb(226, 246, 246);
+  --color-button-active: rgb(141, 78, 6);
 }
 
 body {
@@ -31,10 +34,19 @@ header {
   width: 100%;
   background-color: var(--background-component);
   color: var(--color-contrast);
+  position: fixed;
+  z-index: 1;
+}
+
+main {
+  left: var(--sidebar-width);
+  top: var(--header-height);
+  bottom: var(--footer-height);
 }
 
 header {
   height: var(--header-height);
+  top: 0;
 }
 
 .clock {
@@ -42,7 +54,6 @@ header {
 }
 
 footer {
-  position: absolute;
   bottom: 0;
   height: var(--footer-height);
 }
@@ -100,7 +111,7 @@ nav {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  min-width: 800px;
+  min-width: 680px;
   width: 50%;
   align-items: center;
 }
@@ -122,6 +133,68 @@ nav {
   border: 2px solid;
   padding: 2px;
   border-radius: 50%;
+}
+
+.table-container {
+  overflow-x: auto;
+  width: 520px;
+  height: 100%;
+  scroll-snap-type: x mandatory;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  scroll-snap-align: start;
+}
+
+tr:nth-child(even) {
+  background-color: var(--background-nth-row);
+}
+
+tr:hover {
+  background-color: var(--background-active-row);
+}
+
+table,
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  white-space: nowrap;
+  cursor: default;
+}
+
+th {
+  background-color: var(--background-component);
+  color: var(--color-contrast);
+  text-align: center;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+  scale: 0.9;
+  transition: 0.25s all ease-in-out;
+}
+
+button:hover {
+  scale: 1.1;
+  color: var(--color-button-active);
+}
+
+h2 {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 @keyframes click-feedback {
