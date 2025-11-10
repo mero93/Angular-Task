@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { Post } from '../../interfaces/post';
 import { HttpService } from '../../services/http.service';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { PostCardComponent } from "../post-card/post-card.component";
+import { PostCardComponent } from '../post-card/post-card.component';
+import { ModalService } from '../../modal/modal.service';
 
 @Component({
   selector: 'app-user-posts',
@@ -15,7 +16,12 @@ export class UserPostsComponent implements OnInit {
   posts: Post[] = [];
   userId!: number;
 
-  constructor(private http: HttpService, private route: ActivatedRoute) {
+  constructor(
+    private http: HttpService,
+    private route: ActivatedRoute,
+    private modalService: ModalService,
+    private viewRef: ViewContainerRef
+  ) {
     this.route.params.subscribe((params) => {
       this.userId = +params['id'];
     });
@@ -29,5 +35,9 @@ export class UserPostsComponent implements OnInit {
     this.http.getUserPosts(userId).subscribe((posts) => {
       this.posts = posts;
     });
+  }
+
+  openModal(post: Post) {
+    this.modalService.openPostModal(this.viewRef, post, 'პოსტის დეტალები');
   }
 }

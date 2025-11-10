@@ -8,6 +8,8 @@ import {
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { ModalComponent } from './modal/modal.component';
+import { Post } from '../interfaces/post';
+import { PostDetailsComponent } from '../components/post-details/post-details.component';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +20,7 @@ export class ModalService {
     @Inject(DOCUMENT) private document: Document
   ) {}
 
-  openModal(
+  private openModal(
     viewRef: ViewContainerRef,
     content: ComponentRef<any>,
     title: string = 'Modal Title'
@@ -36,5 +38,16 @@ export class ModalService {
     content.onDestroy(() => modalComponent.destroy());
 
     this.document.body.appendChild(modalComponent.location.nativeElement);
+  }
+
+  public openPostModal(
+    viewRef: ViewContainerRef,
+    post: Post,
+    title: string = 'Modal Title'
+  ) {
+    const postDetails = viewRef.createComponent(PostDetailsComponent);
+    postDetails.instance.post = post;
+
+    this.openModal(viewRef, postDetails, title);
   }
 }

@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Post } from '../../interfaces/post';
 import { CommonModule } from '@angular/common';
+import { ModalService } from '../../modal/modal.service';
 
 @Component({
   selector: 'app-post-card',

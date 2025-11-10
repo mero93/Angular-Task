@@ -57,8 +57,8 @@ export class HttpService {
       map((res) => {
         this.todos = res;
         res.forEach((todo) => {
-          todo.userId === userId
-        })
+          todo.userId === userId;
+        });
         return res.filter((todo) => todo.userId == userId);
       })
     );
@@ -149,8 +149,8 @@ export class HttpService {
       }
     }
 
-    this.leaderBoard = players;
+    this.leaderBoard = players.sort((a, b) => a.place - b.place);
 
-    return of(players);
+    return of(this.leaderBoard);
   }
 }

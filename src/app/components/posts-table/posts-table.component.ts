@@ -32,13 +32,9 @@ export class PostsTableComponent implements OnInit {
   }
 
   openModal(post: Post) {
-    const postDetails =
-      this.viewContainerRef.createComponent(PostDetailsComponent);
-    postDetails.instance.post = post;
-
-    this.modalService.openModal(
+    this.modalService.openPostModal(
       this.viewContainerRef,
-      postDetails,
+      post,
       'პოსტის დეტალები'
     );
   }
