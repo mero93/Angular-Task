@@ -23,6 +23,8 @@ export class PromotionsComponent implements OnInit {
   selectedOption: string = 'ALL';
   section: number = 1;
   oldSection: number = 1;
+  private storedRotation: number = 0;
+
   @ViewChild('spinner') spinner!: ElementRef;
 
   constructor(private http: HttpService, private renderer: Renderer2) {}
@@ -47,16 +49,26 @@ export class PromotionsComponent implements OnInit {
       return;
     }
 
-    const targetRotation =
-      (this.section - 1) * 36 - 360 * 5;
+    const degreesPerSection = 36;
+    const fullSpins = 5;
 
-    console.log(targetRotation);
+    const targetVisualAngle = (this.section - 1) * degreesPerSection;
+
+    const currentVisualAngle = ((this.storedRotation % 360) + 360) % 360;
+
+    let angleDifference = targetVisualAngle - currentVisualAngle;
+
+    if (angleDifference > 0) {
+      angleDifference -= 360;
+    }
+
+    this.storedRotation += fullSpins * -360 + angleDifference;
 
     this.oldSection = this.section;
     this.renderer.setStyle(
       this.spinner.nativeElement,
       'transform',
-      `rotate(${targetRotation}deg)`
+      `rotate(${this.storedRotation}deg)`
     );
   }
 }
