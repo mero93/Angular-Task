@@ -2,6 +2,12 @@
     <div class="page-content">
         <section class="table-container">
             <h2>მომხმარებლები</h2>
+            <div class="search-bar">
+                <input type="text" [(ngModel)]="searchTerm">
+                <button class="icon-button" (click)="loadUsers()">
+                    <span class="material-symbols-outlined circular-icon">search</span>
+                </button>
+            </div>
             <table>
                 <tr>
                     <th></th>

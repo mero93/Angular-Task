@@ -19,9 +19,9 @@ export class HttpService {
   private leaderBoard: Player[] = [];
   private todos: Todo[] = [];
 
-  getUsers() {
+  getUsers(searchTerm: string = '') {
     if (this.users.length > 0) {
-      return of(this.users);
+      return of(this.searchUsers(searchTerm));
     }
     return this.http.get<UserFull[]>(`${API_URL}/users`).pipe(
       map((res) => {
@@ -35,7 +35,8 @@ export class HttpService {
             name: user.name.split(' ')[0],
           };
         });
-        return this.users;
+
+        return this.searchUsers(searchTerm);
       })
     );
   }
@@ -142,5 +143,19 @@ export class HttpService {
     return of(
       this.leaderBoard.filter((player) => player.week === selectedOption)
     );
+  }
+
+  private searchUsers(searchTerm: string) {
+    if (searchTerm === '') {
+      return this.users;
+    }
+
+    return this.users.filter((user) => {
+      return (
+        user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        user.lastName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        user.email.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    });
   }
 }
