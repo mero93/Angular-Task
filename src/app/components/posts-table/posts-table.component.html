@@ -1,1 +1,21 @@
-<p>posts-table works!</p>
+<h2>მომხმარებლები</h2>
+<div class="table-container" [style.width.px]="pageContentWidth.pageContainer$ | async" #tableContainer>
+    <p>{{tableContainer.offsetWidth}}px {{pageContentWidth.pageContainer$ | async}}px</p>
+    <table>
+        <tr>
+            <!-- <th></th> -->
+            <th>ავტორი</th>
+            <th>სათაური</th>
+        </tr>
+        <tr *ngFor="let post of posts">
+            <!-- <td>
+                <div class="action-buttons">
+                    <button class="icon-button"><span class="material-symbols-outlined">article</span></button>
+                    <button class="icon-button"><span class="material-symbols-outlined">checklist</span></button>
+                </div>
+            </td> -->
+            <td>{{post.authorName}}</td>
+            <td>{{post.title}}</td>
+        </tr>
+    </table>
+</div>

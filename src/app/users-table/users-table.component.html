@@ -1,27 +1,32 @@
-<h2>მომხმარებლები</h2>
-<div class="table-container" [style.width.px]="pageContentWidth.pageContainer$ | async" #tableContainer>
-    <p>{{tableContainer.offsetWidth}}px {{pageContentWidth.pageContainer$ | async}}px</p>
-    <table>
-        <tr>
-            <th></th>
-            <th>სახელი</th>
-            <th>გვარი</th>
-            <th>ტელ. ნომ.</th>
-            <th>მეილი</th>
-            <th>კომპანია</th>
-        </tr>
-        <tr *ngFor="let user of users">
-            <td>
-                <div class="action-buttons">
-                    <button class="icon-button"><span class="material-symbols-outlined">article</span></button>
-                    <button class="icon-button"><span class="material-symbols-outlined">checklist</span></button>
-                </div>
-            </td>
-            <td>{{user.name}}</td>
-            <td>{{user.lastName}}</td>
-            <td>{{user.phone}}</td>
-            <td>{{user.email}}</td>
-            <td>{{user.companyName}}</td>
-        </tr>
-    </table>
+<div class="page-content-wrapper">
+    <div class="page-content">
+        <h2>მომხმარებლები</h2>
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th></th>
+                    <th>სახელი</th>
+                    <th>გვარი</th>
+                    <th>ტელ. ნომ.</th>
+                    <th>მეილი</th>
+                    <th>კომპანია</th>
+                </tr>
+                <tr *ngFor="let user of users">
+                    <td>
+                        <div class="action-buttons">
+                            <button class="icon-button"><span
+                                    class="material-symbols-outlined circular-icon">article</span></button>
+                            <button class="icon-button"><span
+                                    class="material-symbols-outlined circular-icon">checklist</span></button>
+                        </div>
+                    </td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.lastName}}</td>
+                    <td>{{user.phone}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.companyName}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>

@@ -12,6 +12,7 @@ import { PageContentWidthService } from '../services/page-content-width.service'
 })
 export class UsersTableComponent implements OnInit {
   public users: User[] = [];
+  public contentWidth: number = 0;
 
   constructor(
     private http: HttpService,
