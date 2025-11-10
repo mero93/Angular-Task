@@ -1,12 +1,19 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  Renderer2,
+  ViewChild,
+} from '@angular/core';
 import { Player } from '../../interfaces/player';
 import { HttpService } from '../../services/http.service';
 import { PlacePipe } from '../../pipes/nth.pipe';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-promotions',
-  imports: [CommonModule, PlacePipe],
+  imports: [CommonModule, PlacePipe, FormsModule],
   templateUrl: './promotions.component.html',
   styleUrl: './promotions.component.css',
 })
@@ -14,8 +21,11 @@ export class PromotionsComponent implements OnInit {
   leaderBoard: Player[] = [];
   options: string[] = ['ALL', 'I', 'II', 'III', 'IV'];
   selectedOption: string = 'ALL';
+  section: number = 1;
+  oldSection: number = 1;
+  @ViewChild('spinner') spinner!: ElementRef;
 
-  constructor(private http: HttpService) {}
+  constructor(private http: HttpService, private renderer: Renderer2) {}
 
   ngOnInit(): void {
     this.getLeaderBoard();
@@ -30,5 +40,25 @@ export class PromotionsComponent implements OnInit {
   onOptionClick(option: string) {
     this.selectedOption = option;
     this.getLeaderBoard();
+  }
+
+  spinCircle() {
+    console.log(this.section, this.oldSection);
+    if (!this.spinner || this.oldSection === this.section) {
+      return;
+    }
+
+    const toSpin =
+      this.section > this.oldSection ? this.section : 10 - this.section;
+
+    console.log(`spin to ${this.section}`);
+
+    this.oldSection = this.section;
+
+    this.renderer.setStyle(
+      this.spinner.nativeElement,
+      'transform',
+      `rotate(${36 * (this.section - 1)}deg)`
+    );
   }
 }

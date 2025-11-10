@@ -1,7 +1,30 @@
 <div class="page-content-wrapper">
     <div class="page-content">
-        <section class="table-container">
+        <section>
             <h2>ბორბალი</h2>
+            <div class="pie-chart">
+                <div class="spinner">
+                    <div class="pie-circle" #spinner>
+                        <div class="pie-center"></div>
+                    </div>
+                    <div class="pie-arrow">
+                        <span class="material-symbols-outlined">line_end_arrow_notch</span>
+                    </div>
+                </div>
+
+                <div class="input-area">
+                    <input type="number" [(ngModel)]="section" name="section" #model="ngModel" min="1" max="10"
+                        required>
+                    <button class="icon-button" (click)="spinCircle()" [disabled]="model.invalid">
+                        <span class="material-symbols-outlined">cycle</span>
+                    </button>
+                    <p *ngIf="model.invalid && (model.dirty || model.touched) && !model.valid"
+                        class="validation-error">
+                        აღნიშნული სექტორი ვერ მოიძებნა!
+                    </p>
+                </div>
+            </div>
+
         </section>
         <section class="table-container">
             <h2>ლიდერბორდი</h2>

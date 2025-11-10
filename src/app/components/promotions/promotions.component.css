@@ -1,0 +1,81 @@
+.pie-chart {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.pie-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(133, 80, 10);
+  border: 2px solid rgb(71, 42, 5);
+  z-index: 1;
+}
+
+.pie-arrow {
+  position: absolute;
+  top: calc(50% - 30px);
+  right: -60px;
+  color: rgb(155, 23, 0);
+  transform: rotate(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.pie-arrow span {
+  font-size: 60px;
+  text-align: center;
+}
+
+.spinner {
+  width: 250px;
+  height: 250px;
+  position: relative;
+}
+
+.pie-circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid rgb(6, 44, 94);
+  background-image: conic-gradient(
+    rgb(161, 7, 7) 0% 10%,
+    rgb(69, 231, 131) 10% 20%,
+    rgb(154, 20, 180) 20% 30%,
+    rgb(137, 178, 197) 30% 40%,
+    rgb(202, 53, 98) 40% 50%,
+    rgb(216, 191, 47) 50% 60%,
+    red 60% 70%,
+    rgb(64, 88, 69) 70% 80%,
+    rgb(0, 225, 255) 80% 90%,
+    rgb(27, 163, 27) 90% 100%
+  );
+  transition: all 5s ease-out;
+}
+
+.input-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.validation-error {
+  position: absolute;
+  color: #a94442;
+  font-size: 14px;
+  width: 200px;
+  bottom: -40px;
+  left: 0;
+}
