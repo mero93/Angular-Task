@@ -23,13 +23,10 @@ export class AnimateClickDirective {
       'animation-duration',
       `${this.duration}ms`
     );
-    console.log(this.el.nativeElement.classList);
     this.renderer.addClass(this.el.nativeElement, this.animationClass);
-    console.log(this.el.nativeElement.classList);
 
     setTimeout(() => {
       this.renderer.removeClass(this.el.nativeElement, this.animationClass);
-      console.log(this.el.nativeElement.classList);
     }, this.duration);
   }
 }

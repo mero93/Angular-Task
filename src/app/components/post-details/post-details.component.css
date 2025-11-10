@@ -1,0 +1,18 @@
+.post-details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 10px;
+}
+
+.post-details-strong {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.post-details-id {
+  color: grey;
+  font-size: 90%;
+  text-align: right;
+}

@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../interfaces/user';
 import { HttpService } from '../../services/http.service';
-import { PageContentWidthService } from '../../services/page-content-width.service';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -13,11 +12,9 @@ import { RouterLink } from '@angular/router';
 })
 export class UsersTableComponent implements OnInit {
   public users: User[] = [];
-  public contentWidth: number = 0;
 
   constructor(
     private http: HttpService,
-    public pageContentWidth: PageContentWidthService
   ) {}
 
   ngOnInit(): void {
@@ -27,11 +24,6 @@ export class UsersTableComponent implements OnInit {
   loadUsers() {
     this.http.getUsers().subscribe((res) => {
       this.users = res;
-      console.log(res);
     });
-  }
-
-  userPosts() {
-    console.log('userPosts');
   }
 }

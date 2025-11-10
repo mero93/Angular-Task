@@ -56,7 +56,6 @@ export class HttpService {
     return this.http.get<Todo[]>(`${API_URL}/todos`).pipe(
       map((res) => {
         this.todos = res;
-        console.log(this.todos);
         res.forEach((todo) => {
           todo.userId === userId
         })

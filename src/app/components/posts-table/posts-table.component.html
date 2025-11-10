@@ -10,7 +10,7 @@
                 </tr>
                 <tr *ngFor="let post of posts">
                     <td>
-                        <div class="action-buttons">
+                        <div class="action-buttons" (click)="openModal(post)">
                             <button class="icon-button"><span
                                     class="material-symbols-outlined circular-icon">article_shortcut</span>
                             </button>

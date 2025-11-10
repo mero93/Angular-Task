@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { Post } from '../../interfaces/post';
 import { HttpService } from '../../services/http.service';
-import { PageContentWidthService } from '../../services/page-content-width.service';
 import { CommonModule } from '@angular/common';
+import { ModalService } from '../../modal/modal.service';
+import { PostCardComponent } from '../post-card/post-card.component';
+import { PostDetailsComponent } from '../post-details/post-details.component';
 
 @Component({
   selector: 'app-posts-table',
@@ -15,7 +17,8 @@ export class PostsTableComponent implements OnInit {
 
   constructor(
     private http: HttpService,
-    public pageContentWidth: PageContentWidthService
+    private modalService: ModalService,
+    private viewContainerRef: ViewContainerRef
   ) {}
 
   ngOnInit(): void {
@@ -25,7 +28,18 @@ export class PostsTableComponent implements OnInit {
   loadPosts() {
     this.http.getPosts().subscribe((res) => {
       this.posts = res;
-      console.log(res);
     });
+  }
+
+  openModal(post: Post) {
+    const postDetails =
+      this.viewContainerRef.createComponent(PostDetailsComponent);
+    postDetails.instance.post = post;
+
+    this.modalService.openModal(
+      this.viewContainerRef,
+      postDetails,
+      'პოსტის დეტალები'
+    );
   }
 }

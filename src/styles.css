@@ -4,6 +4,7 @@
   text-indent: 0;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
+  cursor: default;
 }
 
 :root {
@@ -189,7 +190,7 @@ button {
 }
 
 .icon-button:hover {
-  scale: 1.1;
+  scale: 1.05;
   color: var(--color-button-active);
 }
 

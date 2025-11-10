@@ -1,0 +1,15 @@
+<div class="post-details" *ngIf="post">
+    <p class="post-details-strong">
+        Author: {{post.authorName}}
+    </p>
+    <p class="post-details-strong">
+        {{post.title}}
+    </p>
+    <hr>
+    <p class="post-details-body">
+        {{post.body}}
+    </p>
+    <p class="post-details-id">
+        Post No.: #{{post.id}}
+    </p>
+</div>
