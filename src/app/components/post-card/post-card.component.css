@@ -17,6 +17,7 @@
 
 .post-card-title {
   font-weight: 600;
+  text-transform: capitalize;
   display: block;
   display: -webkit-box;
   line-clamp: 3;
@@ -40,7 +41,7 @@
 
 .post-card-id {
   color: grey;
-  font-size: 0.9rem;
+  font-size: 90%;
   width: 100%;
   text-align: right;
 }

@@ -3,6 +3,7 @@ import { UsersTableComponent } from './components/users-table/users-table.compon
 import { PromotionsComponent } from './components/promotions/promotions.component';
 import { PostsTableComponent } from './components/posts-table/posts-table.component';
 import { UserPostsComponent } from './components/user-posts/user-posts.component';
+import { UserTodosComponent } from './components/user-todos/user-todos.component';
 
 export const routes: Routes = [
   { path: 'users', component: UsersTableComponent, title: 'მომხმარებლები' },
@@ -13,7 +14,7 @@ export const routes: Routes = [
   },
   {
     path: 'users/:id/todos',
-    component: UserPostsComponent,
+    component: UserTodosComponent,
     title: 'To Do სია',
   },
   { path: 'posts', component: PostsTableComponent, title: 'პოსტები' },

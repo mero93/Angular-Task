@@ -1,1 +1,23 @@
-<p>user-todos works!</p>
+<div class="page-content-wrapper">
+    <div class="page-content">
+        <section class="table-container">
+            <h2>To Do სია</h2>
+            <table>
+                <tr>
+                    <th>ნომ.</th>
+                    <th>დავალება</th>
+                    <th>სტატუსი</th>
+                </tr>
+                <tr *ngFor="let todo of todos" [ngClass]="{'success': todo.completed}">
+                    <td>{{todo.id}}</td>
+                    <td>{{todo.title}}</td>
+                    <td>
+                        <span class="material-symbols-outlined">
+                            {{todo.completed ? 'check_box' : 'check_box_outline_blank'}}
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </section>
+    </div>
+</div>

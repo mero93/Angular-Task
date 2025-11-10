@@ -43,20 +43,24 @@ export class HttpService {
   getUserPosts(userId: number) {
     return this.getPosts().pipe(
       map((posts) => {
-        return posts.filter((post) => post.userId === userId);
+        return posts.filter((post) => post.userId == userId);
       })
     );
   }
 
   getUserTodos(userId: number) {
     if (this.todos.length > 0) {
-      return of(this.todos.filter((todo) => todo.userId === userId));
+      return of(this.todos.filter((todo) => todo.userId == userId));
     }
 
     return this.http.get<Todo[]>(`${API_URL}/todos`).pipe(
       map((res) => {
         this.todos = res;
-        return this.todos.filter((todo) => todo.userId === userId);
+        console.log(this.todos);
+        res.forEach((todo) => {
+          todo.userId === userId
+        })
+        return res.filter((todo) => todo.userId == userId);
       })
     );
   }
