@@ -5,6 +5,12 @@
         </section>
         <section class="table-container">
             <h2>ლიდერბორდი</h2>
+            <div class="button-group">
+                <button *ngFor="let option of options" [ngClass]="{'active-button': option === selectedOption}"
+                    (click)="onOptionClick(option)">
+                    {{option}}
+                </button>
+            </div>
             <table>
                 <tr>
                     <th>ID</th>

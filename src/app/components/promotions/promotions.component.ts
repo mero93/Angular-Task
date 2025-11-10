@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Player } from '../../interfaces/player';
 import { HttpService } from '../../services/http.service';
-import { PlacePipe } from "../../pipes/nth.pipe";
+import { PlacePipe } from '../../pipes/nth.pipe';
 
 @Component({
   selector: 'app-promotions',
@@ -12,6 +12,8 @@ import { PlacePipe } from "../../pipes/nth.pipe";
 })
 export class PromotionsComponent implements OnInit {
   leaderBoard: Player[] = [];
+  options: string[] = ['ALL', 'I', 'II', 'III', 'IV'];
+  selectedOption: string = 'ALL';
 
   constructor(private http: HttpService) {}
 
@@ -20,8 +22,13 @@ export class PromotionsComponent implements OnInit {
   }
 
   getLeaderBoard() {
-    this.http.getLeaderBoard().subscribe((data) => {
+    this.http.getLeaderBoard(this.selectedOption).subscribe((data) => {
       this.leaderBoard = data;
     });
+  }
+
+  onOptionClick(option: string) {
+    this.selectedOption = option;
+    this.getLeaderBoard();
   }
 }

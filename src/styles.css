@@ -12,12 +12,13 @@
   --footer-height: 30px;
   --background-body: rgb(223, 229, 231);
   --background-active: rgb(12, 125, 150);
-  --background-component: rgba(12, 111, 150);
+  --background-component: rgb(12, 111, 150);
   --background-nth-row: rgb(181, 200, 201);
   --background-active-row: rgb(130, 177, 182);
   --color-general: rgb(1, 16, 22);
   --color-contrast: rgb(226, 246, 246);
   --color-button-active: rgb(141, 78, 6);
+  --border-color: rgb(15, 75, 99);
 }
 
 body {
@@ -211,6 +212,48 @@ h2 {
   justify-content: center;
   align-items: start;
   gap: 20px;
+}
+
+.button-group {
+  width: fit-content;
+  margin-bottom: 10px;
+  display: grid;
+  grid-auto-flow: column;
+  transition: all 0.5s ease-in-out;
+}
+
+.button-group button {
+  padding: 5px 10px;
+  background-color: var(--background-component);
+  color: var(--color-contrast);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease-in-out;
+}
+
+.button-group button:first-child {
+  padding-left: 15px;
+  border-radius: 10px 0 0 10px;
+  border: 2px solid var(--border-color);
+}
+
+.button-group button:last-child {
+  padding-right: 15px;
+  border-radius: 0 10px 10px 0;
+  border: 2px solid var(--border-color);
+  border-left: none;
+}
+
+.button-group button:not(:last-child):not(:first-child) {
+  border: 2px solid var(--border-color);
+  border-left: none;
+}
+
+.button-group > .active-button {
+  background-color: var(--background-active);
+  width: 60px;
 }
 
 @keyframes click-feedback {
