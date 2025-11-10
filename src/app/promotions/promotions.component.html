@@ -1,1 +1,35 @@
-<p>promotions works!</p>
+<div class="page-content-wrapper">
+    <div class="page-content">
+        <section class="table-container">
+            <h2>ბორბალი</h2>
+        </section>
+        <section class="table-container">
+            <h2>ლიდერბორდი</h2>
+            <table>
+                <tr>
+                    <!-- <th></th> -->
+                    <th>ID</th>
+                    <th>სახელი</th>
+                    <th>ადგილი</th>
+                    <th>კვირა</th>
+                </tr>
+                <tr *ngFor="let player of leaderBoard">
+                    <!-- <td>
+                        <div class="action-buttons">
+                            <button class="icon-button">
+                                <span class="material-symbols-outlined circular-icon">article</span>
+                            </button>
+                            <button class="icon-button">
+                                <span class="material-symbols-outlined circular-icon">checklist</span>
+                            </button>
+                        </div>
+                    </td> -->
+                    <td>{{player.customerId}}</td>
+                    <td>{{player.loginName}}</td>
+                    <td>{{player.place | nth}}</td>
+                    <td>{{player.week}}</td>
+                </tr>
+            </table>
+        </section>
+    </div>
+</div>
