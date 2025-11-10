@@ -1,10 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'nth',
+  name: 'place',
 })
-export class NthPipe implements PipeTransform {
-  transform(value: number, ...args: unknown[]): unknown {
+export class PlacePipe implements PipeTransform {
+  transform(value: number, ...args: unknown[]): string {
     let nth: string = '';
 
     switch (value) {

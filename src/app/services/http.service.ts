@@ -40,6 +40,14 @@ export class HttpService {
     );
   }
 
+  getUserPosts(userId: number) {
+    return this.getPosts().pipe(
+      map((posts) => {
+        return posts.filter((post) => post.userId === userId);
+      })
+    );
+  }
+
   getUserTodos(userId: number) {
     if (this.todos.length > 0) {
       return of(this.todos.filter((todo) => todo.userId === userId));

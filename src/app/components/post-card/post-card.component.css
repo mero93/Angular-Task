@@ -1,0 +1,46 @@
+.post-card {
+  width: 320px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 15px 12px 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.post-card-author-name {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.post-card-title {
+  font-weight: 600;
+  display: block;
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  white-space: wrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.post-card-body {
+  display: block;
+  display: -webkit-box;
+  line-clamp: 6;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  white-space: wrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.post-card-id {
+  color: grey;
+  font-size: 0.9rem;
+  width: 100%;
+  text-align: right;
+}

@@ -14,10 +14,10 @@
                 <tr *ngFor="let user of users">
                     <td>
                         <div class="action-buttons">
-                            <button class="icon-button">
+                            <button class="icon-button" routerLink="{{user.id}}/posts">
                                 <span class="material-symbols-outlined circular-icon">article</span>
                             </button>
-                            <button class="icon-button">
+                            <button class="icon-button" routerLink="{{user.id}}/todos">
                                 <span class="material-symbols-outlined circular-icon">checklist</span>
                             </button>
                         </div>
