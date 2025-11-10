@@ -60,7 +60,7 @@
     rgb(0, 225, 255) 80% 90%,
     rgb(27, 163, 27) 90% 100%
   );
-  transition: all 5s ease-out;
+  transition: all 2s ease-out;
 }
 
 .input-area {

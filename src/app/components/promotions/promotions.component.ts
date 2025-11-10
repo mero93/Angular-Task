@@ -43,22 +43,20 @@ export class PromotionsComponent implements OnInit {
   }
 
   spinCircle() {
-    console.log(this.section, this.oldSection);
     if (!this.spinner || this.oldSection === this.section) {
       return;
     }
 
-    const toSpin =
-      this.section > this.oldSection ? this.section : 10 - this.section;
+    const targetRotation =
+      (this.section - 1) * 36 - 360 * 5;
 
-    console.log(`spin to ${this.section}`);
+    console.log(targetRotation);
 
     this.oldSection = this.section;
-
     this.renderer.setStyle(
       this.spinner.nativeElement,
       'transform',
-      `rotate(${36 * (this.section - 1)}deg)`
+      `rotate(${targetRotation}deg)`
     );
   }
 }
